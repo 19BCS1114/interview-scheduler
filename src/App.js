@@ -1,10 +1,18 @@
 import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Home } from "./components/Home";
+import { CreateSchedule } from "./components/CreateSchedule";
+import { EditSchedule } from "./components/EditSchedule";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header"></header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/createschedule" element={<CreateSchedule />} />
+        <Route exact path="/editschedule" element={<EditSchedule />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
