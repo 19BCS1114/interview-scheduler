@@ -9,11 +9,15 @@ export const Details = (props) => {
             <div className="col-md-4 d-flex flex-column align-items-center">
               <h5 className="card-title">{props.name}</h5>
               <p className="card-text">
-                <strong className="text-muted ">{props.date}</strong>
+                <strong className="text-muted ">
+                  {props.date?.split("T")[0]}
+                </strong>
                 <br />
-                <strong>Start time:</strong> {props.startTime}
+                <strong>Start time:</strong>{" "}
+                {props.startTime?.split("T")[1]?.split(":00.000")[0]}
                 <br />
-                <strong>End time:</strong> {props.endTime}
+                <strong>End time:</strong>{" "}
+                {props.endTime?.split("T")[1]?.split(":00.000")[0]}
               </p>
             </div>
             <div className="col-md-4 d-flex flex-column align-items-center">

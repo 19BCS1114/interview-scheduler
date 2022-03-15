@@ -7,12 +7,17 @@ export const SmallCard = (props) => {
       <div className="card m-2" style={{ width: "16rem" }}>
         <div className="card-body">
           <h5 className="card-title">{props.name}</h5>
-          <h6 className="card-subtitle mb-2 text-muted">{props.date}</h6>
+          <h6 className="card-subtitle mb-2 text-muted">
+            {" "}
+            {props.date?.split("T")[0]}
+          </h6>
           <p className="card-text">
-            <strong>Start time:</strong> {props.startTime}
+            <strong>Start time:</strong>{" "}
+            {props.startTime?.split("T")[1]?.split(":00.000")[0]}
           </p>
           <p className="card-text">
-            <strong>End time:</strong> {props.endTime}
+            <strong>End time:</strong>{" "}
+            {props.endTime?.split("T")[1]?.split(":00.000")[0]}
           </p>
           <div className="d-flex justify-content-between">
             <button
@@ -23,7 +28,7 @@ export const SmallCard = (props) => {
                   date: props.date,
                   startTime: props.startTime,
                   endTime: props.endTime,
-                  id: props.id,
+                  id: props._id,
                   interviewers: props.interviewers,
                   candidates: props.candidates,
                 });
@@ -32,7 +37,17 @@ export const SmallCard = (props) => {
             >
               Expand
             </button>
-            <Link to="/editschedule" className="btn btn-sm btn-secondary">
+            <Link
+              to={`/editschedule/${props._id}`}
+              className="btn btn-sm btn-secondary"
+              state={{
+                name: props.name,
+                date: props.date?.split("T")[0],
+                startTime: props.startTime?.split("T")[1]?.split(":00.000")[0],
+                endTime: props.endTime?.split("T")[1]?.split(":00.000")[0],
+                _id: props._id,
+              }}
+            >
               Edit
             </Link>
           </div>

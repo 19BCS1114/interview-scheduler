@@ -1,215 +1,69 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Details } from "./Details";
 import { Navbar } from "./Navbar";
 import { SmallCard } from "./SmallCard";
 
 export const Home = () => {
   const initialState = {
-    slideIndices: [0, 1, 2, 3],
+    slideIndices: [],
     interviews: [
       {
-        name: "efiej",
+        name: "",
         date: "",
         startTime: "",
         endTime: "",
         id: "",
-        interviewers: [
-          { name: "Chanchal", email: "chanchalmishra@gmail.com" },
-          { name: "Anubhav", email: "anubhavsharma@gmail.com" },
-        ],
-        candidates: [
-          { name: "Chanchal", email: "chanchalmishra@gmail.com" },
-          { name: "Anubhav", email: "anubhavsharma@gmail.com" },
-        ],
-      },
-      {
-        name: "2121",
-        date: "",
-        startTime: "",
-        endTime: "",
-        id: "",
-        interviewers: [
-          { name: "Chanchal", email: "chanchalmishra@gmail.com" },
-          { name: "Anubhav", email: "anubhavsharma@gmail.com" },
-        ],
-        candidates: [
-          { name: "Chanchal", email: "chanchalmishra@gmail.com" },
-          { name: "Anubhav", email: "anubhavsharma@gmail.com" },
-        ],
-      },
-      {
-        name: "2121",
-        date: "",
-        startTime: "",
-        endTime: "",
-        id: "",
-        interviewers: [
-          { name: "Chanchal", email: "chanchalmishra@gmail.com" },
-          { name: "Anubhav", email: "anubhavsharma@gmail.com" },
-        ],
-        candidates: [
-          { name: "Chanchal", email: "chanchalmishra@gmail.com" },
-          { name: "Anubhav", email: "anubhavsharma@gmail.com" },
-        ],
-      },
-      {
-        name: "2121",
-        date: "",
-        startTime: "",
-        endTime: "",
-        id: "",
-        interviewers: [
-          { name: "Chanchal", email: "chanchalmishra@gmail.com" },
-          { name: "Anubhav", email: "anubhavsharma@gmail.com" },
-        ],
-        candidates: [
-          { name: "Chanchal", email: "chanchalmishra@gmail.com" },
-          { name: "Anubhav", email: "anubhavsharma@gmail.com" },
-        ],
-      },
-      {
-        name: "2121",
-        date: "",
-        startTime: "",
-        endTime: "",
-        id: "",
-        interviewers: [
-          { name: "Chanchal", email: "chanchalmishra@gmail.com" },
-          { name: "Anubhav", email: "anubhavsharma@gmail.com" },
-        ],
-        candidates: [
-          { name: "Chanchal", email: "chanchalmishra@gmail.com" },
-          { name: "Anubhav", email: "anubhavsharma@gmail.com" },
-        ],
-      },
-      {
-        name: "2121",
-        date: "",
-        startTime: "",
-        endTime: "",
-        id: "",
-        interviewers: [
-          { name: "Chanchal", email: "chanchalmishra@gmail.com" },
-          { name: "Anubhav", email: "anubhavsharma@gmail.com" },
-        ],
-        candidates: [
-          { name: "Chanchal", email: "chanchalmishra@gmail.com" },
-          { name: "Anubhav", email: "anubhavsharma@gmail.com" },
-        ],
-      },
-      {
-        name: "2121",
-        date: "",
-        startTime: "",
-        endTime: "",
-        id: "",
-        interviewers: [
-          { name: "Chanchal", email: "chanchalmishra@gmail.com" },
-          { name: "Anubhav", email: "anubhavsharma@gmail.com" },
-        ],
-        candidates: [
-          { name: "Chanchal", email: "chanchalmishra@gmail.com" },
-          { name: "Anubhav", email: "anubhavsharma@gmail.com" },
-        ],
-      },
-      {
-        name: "2121",
-        date: "",
-        startTime: "",
-        endTime: "",
-        id: "",
-        interviewers: [
-          { name: "Chanchal", email: "chanchalmishra@gmail.com" },
-          { name: "Anubhav", email: "anubhavsharma@gmail.com" },
-        ],
-        candidates: [
-          { name: "Chanchal", email: "chanchalmishra@gmail.com" },
-          { name: "Anubhav", email: "anubhavsharma@gmail.com" },
-        ],
-      },
-      {
-        name: "2121",
-        date: "",
-        startTime: "",
-        endTime: "",
-        id: "",
-        interviewers: [
-          { name: "Chanchal", email: "chanchalmishra@gmail.com" },
-          { name: "Anubhav", email: "anubhavsharma@gmail.com" },
-        ],
-        candidates: [
-          { name: "Chanchal", email: "chanchalmishra@gmail.com" },
-          { name: "Anubhav", email: "anubhavsharma@gmail.com" },
-        ],
-      },
-      {
-        name: "2121",
-        date: "",
-        startTime: "",
-        endTime: "",
-        id: "",
-        interviewers: [
-          { name: "Chanchal", email: "chanchalmishra@gmail.com" },
-          { name: "Anubhav", email: "anubhavsharma@gmail.com" },
-        ],
-        candidates: [
-          { name: "Chanchal", email: "chanchalmishra@gmail.com" },
-          { name: "Anubhav", email: "anubhavsharma@gmail.com" },
-        ],
-      },
-      {
-        name: "eduheue",
-        date: "",
-        startTime: "",
-        endTime: "",
-        id: "",
-        interviewers: [
-          { name: "Chanchal", email: "chanchalmishra@gmail.com" },
-          { name: "Anubhav", email: "anubhavsharma@gmail.com" },
-        ],
-        candidates: [
-          { name: "Chanchal", email: "chanchalmishra@gmail.com" },
-          { name: "Anubhav", email: "anubhavsharma@gmail.com" },
-        ],
-      },
-      {
-        name: "jneudeud",
-        date: "",
-        startTime: "",
-        endTime: "",
-        id: "",
-        interviewers: [
-          { name: "Chanchal", email: "chanchalmishra@gmail.com" },
-          { name: "Anubhav", email: "anubhavsharma@gmail.com" },
-        ],
-        candidates: [
-          { name: "Chanchal", email: "chanchalmishra@gmail.com" },
-          { name: "Anubhav", email: "anubhavsharma@gmail.com" },
-        ],
+        interviewers: [],
+        candidates: [],
       },
     ],
   };
   const [state, setState] = useState(initialState);
   const detailInitialState = {
-    name: "Interview Title",
-    date: "21/12/2022",
-    startTime: "12:12",
-    endTime: "10:10",
+    name: "",
+    date: "",
+    startTime: "",
+    endTime: "",
     id: "",
-    interviewers: [
-      { name: "Chanchal", email: "chanchalmishra@gmail.com" },
-      { name: "Anubhav", email: "anubhavsharma@gmail.com" },
-    ],
-    candidates: [
-      { name: "Chanchal", email: "chanchalmishra@gmail.com" },
-      { name: "Anubhav", email: "anubhavsharma@gmail.com" },
-    ],
+    interviewers: [],
+    candidates: [],
   };
   const [detailState, setDetailState] = useState(detailInitialState);
 
   const detailHandler = (dataDetail) => {
     setDetailState({ ...dataDetail });
   };
+
+  const getData = async () => {
+    let response = await fetch(
+      "https://interview-scheduling-server.herokuapp.com/",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    let res = await response.json();
+    if (res.error) {
+      console.log(res.error);
+      return 0;
+    } else {
+      let slideIndices = [];
+      for (let i = 0; i < res.interviews.length / 3; i++) {
+        slideIndices.push(i);
+      }
+      console.log(res);
+      setState({ slideIndices: slideIndices, interviews: res.interviews });
+      return res.interviews[0];
+    }
+  };
+  useEffect(() => {
+    getData().then((interview) => {
+      if (interview) detailHandler(interview);
+    });
+  }, []);
 
   return (
     <div>
@@ -239,14 +93,22 @@ export const Home = () => {
                         {...state.interviews[i * 3]}
                         detailHandler={detailHandler}
                       />
-                      <SmallCard
-                        {...state.interviews[i * 3 + 1]}
-                        detailHandler={detailHandler}
-                      />
-                      <SmallCard
-                        {...state.interviews[i * 3 + 2]}
-                        detailHandler={detailHandler}
-                      />
+                      {i * 3 + 1 < state.interviews.length ? (
+                        <SmallCard
+                          {...state.interviews[i * 3 + 1]}
+                          detailHandler={detailHandler}
+                        />
+                      ) : (
+                        ""
+                      )}
+                      {i * 3 + 2 < state.interviews.length ? (
+                        <SmallCard
+                          {...state.interviews[i * 3 + 2]}
+                          detailHandler={detailHandler}
+                        />
+                      ) : (
+                        ""
+                      )}
                     </div>
                   </div>
                 ))}
