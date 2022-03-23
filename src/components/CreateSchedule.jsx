@@ -95,6 +95,7 @@ export const CreateSchedule = () => {
       alert("No of participants is less than 2");
     } else {
       event.preventDefault();
+      alert("Interview Created!");
       bridge();
       navigate("/");
     }
